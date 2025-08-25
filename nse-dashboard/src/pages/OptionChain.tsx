@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Search, PieChart, TrendingUp, TrendingDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { LoadingSpinner } from '../components/Common/LoadingSpinner';
 import { ErrorMessage } from '../components/Common/ErrorMessage';
 import { apiService } from '../services/api';

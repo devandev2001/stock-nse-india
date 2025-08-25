@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { EquityDetails, MarketStatus, IndexDetails, HistoricalData, OptionChainData, GainersLosers } from '../types/api';
+import type { EquityDetails, MarketStatus, IndexDetails, HistoricalData, OptionChainData, GainersLosers } from '../types/api';
 
 // Configure the base URL for your NSE API
 const API_BASE_URL = 'http://localhost:3000';

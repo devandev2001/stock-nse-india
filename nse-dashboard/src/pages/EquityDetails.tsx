@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, TrendingUp, BarChart3, Info, Building2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, TrendingUp, BarChart3, Building2 } from 'lucide-react';
 import { StatCard } from '../components/Common/StatCard';
 import { LoadingSpinner } from '../components/Common/LoadingSpinner';
 import { ErrorMessage } from '../components/Common/ErrorMessage';
@@ -166,11 +166,11 @@ export const EquityDetails: React.FC = () => {
                     <XAxis 
                       dataKey="date" 
                       tick={{ fontSize: 12 }}
-                      tickFormatter={(value) => format(new Date(value), 'MMM dd')}
+                      tickFormatter={(value: any) => format(new Date(value), 'MMM dd')}
                     />
                     <YAxis tick={{ fontSize: 12 }} />
                     <Tooltip 
-                      labelFormatter={(value) => format(new Date(value), 'MMM dd, yyyy')}
+                      labelFormatter={(value: any) => format(new Date(value), 'MMM dd, yyyy')}
                       formatter={(value: any) => [`₹${value.toFixed(2)}`, 'Price']}
                     />
                     <Line 
@@ -192,11 +192,11 @@ export const EquityDetails: React.FC = () => {
                     <XAxis 
                       dataKey="date" 
                       tick={{ fontSize: 12 }}
-                      tickFormatter={(value) => format(new Date(value), 'MMM dd')}
+                      tickFormatter={(value: any) => format(new Date(value), 'MMM dd')}
                     />
                     <YAxis tick={{ fontSize: 12 }} />
                     <Tooltip 
-                      labelFormatter={(value) => format(new Date(value), 'MMM dd, yyyy')}
+                      labelFormatter={(value: any) => format(new Date(value), 'MMM dd, yyyy')}
                       formatter={(value: any) => [value.toLocaleString('en-IN'), 'Volume']}
                     />
                     <Bar dataKey="volume" fill="#3b82f6" />

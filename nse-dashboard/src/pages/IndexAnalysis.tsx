@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Search, BarChart3, TrendingUp, Activity } from 'lucide-react';
+import { BarChart3, TrendingUp, Activity } from 'lucide-react';
 import { StatCard } from '../components/Common/StatCard';
 import { LoadingSpinner } from '../components/Common/LoadingSpinner';
 import { ErrorMessage } from '../components/Common/ErrorMessage';
 import { apiService } from '../services/api';
 
 export const IndexAnalysis: React.FC = () => {
-  const [selectedIndex, setSelectedIndex] = useState('NIFTY 50');
-  const [indexNames, setIndexNames] = useState<any[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState<string>('');
   const [indexData, setIndexData] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchIndexNames = async () => {
       try {
         const names = await apiService.getIndexNames();
-        setIndexNames(names.data || []);
+        // setIndexNames(names.data || []); // This line was removed as per the edit hint
       } catch (err) {
         console.error('Error fetching index names:', err);
       }

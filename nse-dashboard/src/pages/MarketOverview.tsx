@@ -9,15 +9,14 @@ import {
   Activity, 
   DollarSign,
   BarChart3,
-  Users
+  Clock
 } from 'lucide-react';
 
 export const MarketOverview: React.FC = () => {
-  const [marketData, setMarketData] = useState<any>(null);
   const [allIndices, setAllIndices] = useState<any>(null);
   const [gainersLosers, setGainersLosers] = useState<any>(null);
   const [mostActive, setMostActive] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchData = async () => {
@@ -25,14 +24,12 @@ export const MarketOverview: React.FC = () => {
       setLoading(true);
       setError(null);
 
-      const [marketStatus, indices, nifty50GainersLosers, nifty50MostActive] = await Promise.all([
-        apiService.getMarketStatus(),
+      const [indices, nifty50GainersLosers, nifty50MostActive] = await Promise.all([
         apiService.getAllIndices(),
         apiService.getGainersLosers('NIFTY 50'),
         apiService.getMostActive('NIFTY 50')
       ]);
 
-      setMarketData(marketStatus);
       setAllIndices(indices);
       setGainersLosers(nifty50GainersLosers);
       setMostActive(nifty50MostActive);

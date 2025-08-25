@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { 
-  Home, 
-  TrendingUp, 
-  BarChart3, 
-  Settings, 
-  PieChart,
+import {
+  Home,
+  BarChart3,
+  TrendingUp,
   Activity,
-  Building2
+  Building2,
+  PieChart,
 } from 'lucide-react';
 
 const navigation = [
@@ -29,7 +28,7 @@ export const Sidebar: React.FC = () => {
               <NavLink
                 key={item.name}
                 to={item.href}
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
                     isActive
                       ? 'bg-primary-100 text-primary-900 border-r-2 border-primary-600'
